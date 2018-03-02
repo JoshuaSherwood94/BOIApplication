@@ -2,10 +2,14 @@
 
 (function() {
 
-    var AccountController =  function(accountService, $log) {
-        
+    var AccountController =  function(accountService, $log, $state) {
+    	$log.log("Account Controller Created");
     	var vm = this;
-        
+    	
+    	vm.firstname = "";
+    	vm.lastname = "";
+    	vm.accountNumber ="";
+    	
         vm.isHidden = false;
         
         vm.hideTable = function()
@@ -25,8 +29,28 @@
        }
        
        init();
+       
+       vm.deleteAccount = function(firstname, lastname, accountNumber, accountId) {
+       	$log.log("EditAccountController deleteAccount");
+       	$log.log(firstname);
+       	$log.log(lastname);
+       	$log.log(accountNumber);
+       	$log.log(accountId);
+       	var account = {id:accountId};
+       	accountService.deleteAccount(account);
+       }
+       
+       vm.updateAccount = function(firstname, lastname, accountNumber, accountId) {
+          	$log.log("EditAccountController updateAccount");
+          	$log.log(firstname);
+          	$log.log(lastname);
+          	$log.log(accountNumber);
+          	$log.log(accountId);
+          	$state.go('updateAccount',{firstname, lastname, accountNumber, accountId})
+          }
+            
             
     };
 
-    angular.module('accountApp').controller('accountController', ['accountService','$log', AccountController]);
+    angular.module('accountApp').controller('accountController', ['accountService','$log','$state', AccountController]);
 }());

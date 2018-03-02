@@ -9,6 +9,7 @@
 
                 GET: function (apiPath) {
                     var deferred = $q.defer();
+                    $log.log("Dal get");
                     $http.get(apiPath).then(function (result) {
                         deferred.resolve(result.data);
                     }, function (e) {
@@ -18,6 +19,10 @@
                 },
 
                 POST: function (apiPath, itemToSave) {
+                	$log.log("apiPath");
+                	$log.log(apiPath);
+                	$log.log("itemToSave");
+                	$log.log(itemToSave);
                     var deferred = $q.defer();
                     $http(
                         {
@@ -58,6 +63,8 @@
                 },
 
                 DELETE: function (apiPath, itemToDelete) {
+                	$log.log("dal itemToDelete");
+                	$log.log(itemToDelete);
                     var deferred = $q.defer();
                     $http.delete(apiPath + itemToDelete.id).then(function () {
                         deferred.resolve();

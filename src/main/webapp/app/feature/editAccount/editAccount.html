@@ -1,0 +1,17 @@
+<div class="panel panel-default" ng-controller="editAccountController as editAccountCtrl">
+	<div class="panel-heading">Accounts page</div>
+	<div class="panel-body">
+		<form name="addAccount">
+  			First name:<br></br>
+  			<input type="text" ng-model="editAccountCtrl.firstname"></input>
+  			<br></br>
+  			Last name:<br></br>
+  			<input type="text" ng-model="editAccountCtrl.lastname"></input>
+  			<br></br>
+  			Account Number:<br></br>
+  			<input type="text" ng-model="editAccountCtrl.accountNumber"></input>
+  			<br></br><br></br>
+  			<button class="btn" ng-click="editAccountCtrl.submitButton()">Add</button>
+		</form>
+	</div>
+</div>

@@ -11,6 +11,18 @@
         }).state("account", {
                 url: "/account",
                 templateUrl: "app/feature/account/account.html"
-        })
+        }).state("editAccount", {
+        url: "/editAccount",
+        templateUrl: "app/feature/editAccount/editAccount.html"
+        }).state("updateAccount", {
+            url: "/updateAccount",
+            params: {
+            	firstname: null,
+                lastname: null,
+                accountNumber: null,
+                accountId: null
+            },
+            templateUrl: "app/feature/updateAccount/updateAccount.html"
+            })
     });
 }());

@@ -43,6 +43,8 @@
                 },
 
                 PUT: function (apiPath, itemToSave) {
+                    $log.log("dal updateAccount");
+                    $log.log(itemToSave);
                     var deferred = $q.defer();
                     $http(
                         {
@@ -55,8 +57,10 @@
                             data: JSON.stringify(itemToSave)
                         }
                     ).then(function (results) {
+                        $log.log("Successfull update"+results)
                             deferred.resolve(results);
                         }, function (e) {
+                            $log.log("unsuccessfull update"+e)
                             deferred.reject(e);
                         });
                     return deferred.promise;

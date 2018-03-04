@@ -20,7 +20,7 @@
             	firstname: null,
                 lastname: null,
                 accountNumber: null,
-                accountId: null
+                id: null
             },
             templateUrl: "app/feature/updateAccount/updateAccount.html"
             })

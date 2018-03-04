@@ -38,15 +38,18 @@
        	$log.log(accountId);
        	var account = {id:accountId};
        	accountService.deleteAccount(account);
+        init();
        }
        
-       vm.updateAccount = function(firstname, lastname, accountNumber, accountId) {
-          	$log.log("EditAccountController updateAccount");
-          	$log.log(firstname);
-          	$log.log(lastname);
-          	$log.log(accountNumber);
-          	$log.log(accountId);
-          	$state.go('updateAccount',{firstname, lastname, accountNumber, accountId})
+       vm.updateAccount = function(firstname, lastname, accountNumber,accountId) {
+          	$log.log("AccountController updateAccount");
+          	$log.log("firstname" + firstname);
+          	$log.log("lastname" + lastname);
+          	$log.log("accountNumber" + accountNumber);
+          	$log.log("accountid" + accountId);
+            var account = {firstname:firstname, lastname:lastname, accountNumber:accountNumber, id:accountId};
+            $log.log("account" + account);
+          	$state.go('updateAccount',account)
           }
             
             

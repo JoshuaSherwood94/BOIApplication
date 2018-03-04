@@ -2,9 +2,9 @@ package com.qa.service.business;
 
 import javax.inject.Inject;
 
-import org.apache.log4j.Logger;
-
 import com.qa.service.repository.AccountRepository;
+
+import org.apache.log4j.Logger;
 
 public class AccountServiceImpl implements AccountService {
 
@@ -33,5 +33,12 @@ public class AccountServiceImpl implements AccountService {
 
 	public void setRepo(AccountRepository repo) {
 		this.repo = repo;
+	}
+
+	@Override
+	public String updateAccount(String account) {
+		LOGGER.info("AccountDBRepository this : "+account);
+		LOGGER.info("In AccountServiceImpl updateAccount ");
+		return repo.updateAccount(account);
 	}
 }

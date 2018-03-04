@@ -58,6 +58,24 @@ public class AccountDBRepository implements AccountRepository {
 		return "{\"message\": \"account not found\"}";
 
 	}
+	
+	@Override
+	@Transactional(REQUIRED)
+	public String updateAccount(String account) {
+		LOGGER.info("AccountDBRepository this is the string object: "+account);
+		Account accntToUpdate = util.getObjectForJSON(account, Account.class);
+		LOGGER.info("AccountDBRepository this is the id: "+accntToUpdate.getFirstName());
+		Long id = accntToUpdate.getId();
+		Account accntInDB = findAccount(id);
+		if(accntInDB!=null) {
+			accntInDB.setFirstName(accntToUpdate.getFirstName());
+			accntInDB.setSecondName(accntToUpdate.getSecondName());
+			accntInDB.setAccountNumber(accntToUpdate.getAccountNumber());
+
+			return "{\"message\": \"account successfully updated\"}";
+		}
+		return "{\"message\": \"account not updated\"}";
+	}
 
 	private Account findAccount(Long id) {
 		LOGGER.info("AccountDBRepository findAccount");

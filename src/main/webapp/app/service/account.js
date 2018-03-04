@@ -22,7 +22,7 @@
         {
         	$log.log("AccountService updateAccounts");
         	$log.log(account);
-        	accountDal.updateAccount(account);
+        	return accountDal.updateAccount(account);
         };
         
         this.deleteAccount = function(account)

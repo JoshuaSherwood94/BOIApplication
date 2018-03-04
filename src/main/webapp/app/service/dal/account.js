@@ -16,7 +16,9 @@
         };
 
         this.updateAccount = function (accountToUpdate) {
-            dal.http.PUT("rest/account/json/", accountToUpdate);
+            $log.log("AccountDal updateAccount");
+            $log.log(accountToUpdate);
+            return dal.http.PUT("rest/account/json", accountToUpdate);
         };
 
         this.deleteAccount = function (accountToDelete) {

@@ -1,4 +1,5 @@
 <div class="panel panel-default" ng-controller="accountController as accountCtrl">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <div class="panel-heading">Accounts page</div>
 	    <div class="panel-body">
    		{{accountCtrl.test}}
@@ -16,8 +17,10 @@
         			<td>{{account.firstName}}</td>
         			<td>{{account.secondName}}</td>
         			<td>{{account.accountNumber}}</td>
-        			<td><button class="btn" ng-click="accountCtrl.deleteAccount(account.firstName, account.secondName, account.accountNumber, account.id)">Delete</button></td>
-        			<td><button class="btn" ng-click="accountCtrl.updateAccount(account.firstName, account.secondName, account.accountNumber, account.id)">Update</button></td>
+        			<td><button class="btn" ng-click="accountCtrl.deleteAccount(account.firstName, account.secondName, account.accountNumber, account.id)">
+        			<span class="glyphicon glyphicon-trash"></span> Delete</button></td>
+        			<td><button class="btn" ng-click="accountCtrl.updateAccount(account.firstName, account.secondName, account.accountNumber, account.id)">
+        			<span class="glyphicon glyphicon-pencil"></span> Update</button></td>
         		</tr>
         	</table>
         </div>
